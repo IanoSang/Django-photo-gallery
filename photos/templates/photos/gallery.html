@@ -1,38 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+{%extends 'photos/base.html'%}
 
-    <title>Document</title>
-</head>
-<body>
-<h1 class="text-center"> Gallery</h1>
-<div class="container">
+{% block content %}
+{{block.super}}
     <div class="row">
-        <div class="col-md-3">
-            Nav
-        </div>
-        <div class="col-md-9">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                          <img src="https://cdn.mos.cms.futurecdn.net/3JU2QkoxH3L4hKqfGFaAJS-970-80.jpg.webp" class="image-thumbail" alt="Photo">
-                          <div class="card-body">
-                              <small>Category: Pets</small>
-                          </div>
-                        <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-smm-1">View</a>
-                    </div>
-                </div>
+        <div class="col-md-4">
+            <div class="card">
+                  <img src="https://cdn.mos.cms.futurecdn.net/3JU2QkoxH3L4hKqfGFaAJS-970-80.jpg.webp" class="image-thumbail" alt="Photo">
+                  <div class="card-body">
+                      <small>Category: Pets</small>
+                  </div>
+                <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-smm-1">View</a>
             </div>
-
         </div>
     </div>
-</div>
-
-</body>
-</html>
+{% endblock %}
