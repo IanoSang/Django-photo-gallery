@@ -3,14 +3,17 @@
 {% block content %}
 {{block.super}}
     <div class="row">
+        {% for photo in photos %}
         <div class="col-md-4">
             <div class="card my-2">
-                  <img src="https://cdn.mos.cms.futurecdn.net/3JU2QkoxH3L4hKqfGFaAJS-970-80.jpg.webp" class="image-thumbail" alt="Photo">
+                  <img src="{{photo.image.url}}" class="image-thumbail" alt="Photo">
                   <div class="card-body">
-                      <small>Category: Pets</small>
+                      <small>Category: {{photo.category.name}}</small>
                   </div>
-                <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-smm-1">View</a>
+                <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-smm-1">View</a>
             </div>
         </div>
+
+        {% endfor %}
     </div>
 {% endblock %}
