@@ -3,23 +3,18 @@
 {% block content %}
 {{block.super}}
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="col" style="height: 70vh">
-                       {% if photo.image %}
-                         <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}" class="image-thumbail" alt="Photo">
+
+
+                    <div class="box">
+                        {% if photo.image %}
+                         <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}" alt="Photo">
                         {% endif %}
-                        <div class="description mt-2">
-                            <p>
-                               {{photo.description}}
-                            </p>
 
-                        </div>
+                     </div>
 
-                    </div>
-                    <a href="{% url 'gallery'%}" class="btn btn-dark my-3">Go Back</a>
-                </div>
-            </div>
         </div>
-
+<span class="description p-5">{{photo.description}}</span>
+<div class="text-center mt-3">
+                            <a href="{% url 'gallery'%}" class="btn btn-dark my-3">Go Back</a>
+                    </div>
 {% endblock %}
