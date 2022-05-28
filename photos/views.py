@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Photo
 
 
@@ -21,4 +21,28 @@ def view_photo(request, pk):
 def add_photo(request):
     categories = Category.objects.all()
     context = {'categories': categories}
+    user = request.user
+
+    if request.method == 'POST':
+        data = request.POST
+        images = request.FILES.getlist('images')
+
+        if data['category'] != 'none':
+            category = Category.objects.get(id=data['category'])
+        elif data['category_new'] != '':
+            category, created = Category.objects.get_or_create(
+                user=user,
+                name=data['category_new'])
+        else:
+            category = None
+
+        for image in images:
+            photo = Photo.objects.create(
+                category=category,
+                description=data['description'],
+                image=image,
+            )
+
+        return redirect('gallery')
+
     return render(request, 'photos/add.html', context)

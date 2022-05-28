@@ -6,7 +6,9 @@
         {% for photo in photos %}
         <div class="col-md-4">
             <div class="card my-2">
-                  <img src="{{photo.image.url}}" class="image-thumbail" alt="Photo">
+                    {% if photo.image %}
+                      <img src="{{photo.image.url}}" class="image-thumbail" alt="Photo">
+                    {% endif %}
                   <div class="card-body">
                       <small>Category: {{photo.category.name}}</small>
                   </div>
