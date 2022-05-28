@@ -4,10 +4,16 @@
 {{block.super}}
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col">
-                    <div class="col" style="height: 50vh">
+                <div class="col-md-6">
+                    <div class="col" style="height: 70vh">
                          <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}" class="image-thumbail" alt="Photo">
-                        <p>{{photo.description}}</p>
+
+                        <div class="description mt-2">
+                            <p>
+                               {{photo.description}}
+                            </p>
+
+                        </div>
 
                     </div>
                     <a href="{% url 'gallery'%}" class="btn btn-dark my-3">Go Back</a>
