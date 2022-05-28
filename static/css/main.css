@@ -1,0 +1,9 @@
+.image-thumbail {
+            height: 200px;
+            object-fit: cover;
+        }
+
+.list-group-item a {
+            text-decoration: none;
+            color: black;
+            }
