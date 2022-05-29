@@ -37,8 +37,8 @@ class Location(models.Model):
         self.delete()
 
     @classmethod
-    def update_location(cls, id, name):
-        cls.objects.filter(id=id).update(loc=name)
+    def update_location(cls, id, location):
+        cls.objects.filter(id=id).update(location=location)
 
     @classmethod
     def display_all_locations(cls):
@@ -70,8 +70,8 @@ class Photo(models.Model):
 
     @classmethod
     def search_by_category(cls, search_term):
-        category = cls.objects.filter(category__name__icontains=search_term)
-        return category
+        photos = cls.objects.filter(category__name__icontains=search_term)
+        return photos
 
     @classmethod
     def filter_by_location(cls, location):
@@ -90,6 +90,3 @@ class Photo(models.Model):
         self.description = description,
         self.category = category
         self.save()
-
-
-
