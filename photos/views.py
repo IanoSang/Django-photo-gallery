@@ -47,11 +47,13 @@ def add_photo(request):
 
 
 def search_results(request):
-    if 'photo' in request.GET and request.GET["photo"]:
-        search_term = request.GET.get("pictures")
+
+    if 'photos' in request.GET and request.GET["photos"]:
+        search_term = request.GET.get("photos")
         searched_photos = Photo.search_by_category(search_term)
         message = f"{search_term}"
-        return render(request, 'photos/search.html', {"message": message, "photo": searched_photos})
+        print(searched_photos)
+        return render(request, 'photos/search.html',{"message":message,"photos": searched_photos})
     else:
         message = "You haven't searched for any category"
-        return render(request, 'photos/search.html', {"message": message})
+        return render(request, 'photos/search.html',{"message":message})
