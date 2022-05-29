@@ -5,7 +5,6 @@ from .models import Category, Photo
 # Create your views here.
 
 def gallery(request):
-    category = request.GET.get('category')
     photos = Photo.objects.all()
     categories = Category.objects.all()
     context = {'categories': categories, 'photos': photos}
@@ -45,3 +44,14 @@ def add_photo(request):
         return redirect('gallery')
 
     return render(request, 'photos/add.html', context)
+
+
+def search_results(request):
+    if 'photo' in request.GET and request.GET["photo"]:
+        search_term = request.GET.get("pictures")
+        searched_photos = Photo.search_by_category(search_term)
+        message = f"{search_term}"
+        return render(request, 'photos/search.html', {"message": message, "photo": searched_photos})
+    else:
+        message = "You haven't searched for any category"
+        return render(request, 'photos/search.html', {"message": message})
