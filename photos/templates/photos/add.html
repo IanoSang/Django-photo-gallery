@@ -8,7 +8,30 @@
             <div class="card">
                 <form method='POST' action="" enctype="multipart/form-data">
                             {% csrf_token %}
+                            <div class="form-group m-3">
+                                <label>Upload image</label>
+                                <input required name="images" type="file" multiple class="form-control-file">
+                            </div>
+                            <div class="form-group m-3">
+                                <label>Name</label>
+                                <input required name="name" type="text" placeholder="Enter a Name"
+                                    class="form-control">
+                            </div>
+                             <div class="form-group m-3">
+                                <label>Select a Location</label>
+                                <select name="location" class="form-control">
+                                    <option value='none'>Select a location...</option>
 
+                                    {% for location in locations %}
+                                    <option value='{{location.id}}'>{{location.name}}</option>
+                                    {% endfor %}
+                                </select>
+                             </div>
+                            <div class="form-group m-3">
+                                <label>Add Location</label>
+                                <input name="location_new" type="text" placeholder="Add a new Location"
+                                    class="form-control">
+                            </div>
                             <div class="form-group m-3">
                                 <label>Description</label>
                                 <input required name="description" type="text" placeholder="Enter a description"
@@ -33,10 +56,6 @@
                                     class="form-control">
                             </div>
 
-                            <div class="form-group m-3">
-                                <label>Upload image</label>
-                                <input required name="images" type="file" multiple class="form-control-file">
-                            </div>
                     <div class="text-center">
                             <button type='submit' class="btn btn-primary m-3">Submit</button>
                     </div>

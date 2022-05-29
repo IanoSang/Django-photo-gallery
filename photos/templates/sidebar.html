@@ -1,16 +1,16 @@
 <div class="col-sm-2 text-center">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Categories
+        Locations
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <a href="{% url 'gallery' %}">All</a>
             </li>
-          {% for category in categories%}
+          {% for location in locations%}
             <li class="list-group-item">
-                  <a href="{% url 'gallery' %}?category={{category.name}}">
-                    {{category.name}}
+                  <a href="{% url 'gallery'%}?location={{location.name}}">
+                    {{location.name}}
                   </a>
             </li>
           {% endfor %}

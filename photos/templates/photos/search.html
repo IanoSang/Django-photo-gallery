@@ -13,14 +13,15 @@
     <div class="row">
         {% if photos %}
         {% for photos in photos %}
-            <div class="col-md-6">
+            <div class="col-md-6 my-2">
                 <img height="300" width="400" src = '{{photos.image.url}}'>
             </div>
             <div class="col-md-6">
-                <h2><b>Name: </b> {{photos.name}}</h2>
+                <h5><b>Name: </b> {{photos.name}}</h5>
                 <p>{{photos.description}}</p>
                 <p><b>Category: </b>{{photos.category}}</p>
                 <p><b>Location: </b>{{photos.location}}</p>
+                <div class="muted">Posted: {{photos.date_posted |timesince}} Ago</div>
             </div>
         {% endfor %}
         {% endif %}

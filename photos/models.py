@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 
 # Create your models here.
@@ -51,6 +52,7 @@ class Photo(models.Model):
     location = models.ForeignKey(Location, null=True, blank=True, on_delete=models.SET_NULL)
     image = models.ImageField(null=False, blank=False)
     description = models.TextField()
+    date_posted = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.description

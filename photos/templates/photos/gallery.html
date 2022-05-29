@@ -11,9 +11,13 @@
                     {% endif %}
                   <div class="card-body">
                       <small>Category: {{photo.category.name}}</small>
+                      <br>
+                      <small>Location: {{photo.location.name}}</small>
+
                   </div>
                 <div class="text-center m-3">
-                     <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark">View</a>
+                    <div class="muted">Posted: {{photo.date_posted |timesince}} Ago</div>
+                     <a href="{% url 'photo' photo.id %}" class="btn btn-outline-light">View</a>
                 </div>
 
             </div>

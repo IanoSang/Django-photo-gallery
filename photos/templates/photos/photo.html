@@ -12,6 +12,7 @@
         <span class="description">{{photo.description}}</span>
         <div class="text-center">Location: {{photo.location}}</div>
         <div class="text-center mt-3">
+            <div class="muted">Posted: {{photo.date_posted |timesince}} Ago</div>
            <a href="{% url 'gallery'%}" class="btn btn-dark my-3">Go Back</a>
         </div>
 {% endblock %}
