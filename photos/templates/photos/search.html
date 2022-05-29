@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{%extends 'photos/base.html'%}
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if photo %}
+      <h2>Found {{ photo |length }} of searched term '{{message}}'</h2>
+    {% else %}
+      <h2> Found 0 photos for the search term '{{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+      {% if photo %}
+        {% for photo in pictures %}
+          <div class="col-sm-6">
+              <img height="300" width="400" src = '{{photo.image.url}}'>
+          </div>
+          <div class="col-sm-6">
+              <h2>{{photo.name}}</h2>
+              <p>{{photo.description}}</p>
+
+          </div>
+        {% endfor %}
+      {% endif %}
+  </div>
+</div>
+{% endblock %}
