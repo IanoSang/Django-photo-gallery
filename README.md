@@ -85,6 +85,6 @@ Whatsapp : +254790020740
 
 ## License
 
-MIT License
+[MIT License](https://github.com/IanoSang/Django-photo-gallery/blob/main/LICENSE)
 
 Copyright (c) 2022 Ian Sang
