@@ -41,7 +41,7 @@ This project allows users to view different images on the main page that interes
 *****
 
 ## Live Link
-Or you can access the web application directly via this [LIVE LINK](https://gallery-app.herokuapp.com/).
+Or you can access the web application directly via this [LIVE LINK](https://gallery-galaxy.herokuapp.com/).
 
 *****
 
